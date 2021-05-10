@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cz.czechitas.selenium</groupId>
-    <artifactId>junit-demo</artifactId>
+    <artifactId>domaci_ukol_barbora_vadurova</artifactId>
     <version>1.0</version>
 
     <properties>
