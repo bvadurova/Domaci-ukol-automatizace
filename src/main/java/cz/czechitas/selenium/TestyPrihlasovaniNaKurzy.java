@@ -12,6 +12,8 @@ public class TestyPrihlasovaniNaKurzy {
 
     WebDriver prohlizec;
 
+
+
     @BeforeEach
     public void setUp() {
         System.setProperty("webdriver.gecko.driver", "C:\\Java-Training\\Selenium\\geckodriver.exe");
@@ -20,14 +22,12 @@ public class TestyPrihlasovaniNaKurzy {
     }
 
     @Test
-    public void prihlaseniRodiceSExistujicimUctem() {
+    public void rodicSExistujicimUctemSeMusiPrihlasit(){
         prohlizec.navigate().to("https://cz-test-jedna.herokuapp.com/prihlaseni");
         prihlaseniKUctu();
 
         WebElement zalozkaPrihlasenyUzivatel = prohlizec.findElement(By.xpath("//*[@title='Barbora Vadurova']"));
         Assertions.assertNotNull(zalozkaPrihlasenyUzivatel);
-
-
 
 
     }
@@ -41,12 +41,10 @@ public class TestyPrihlasovaniNaKurzy {
         WebElement tlacitkoPrihlasit = prohlizec.findElement(By.xpath("//button[@class='btn btn-primary' and contains(text(),'Přihlásit')]"));
         tlacitkoPrihlasit.click();
 
-
-
     }
 
     @Test
-    public void  prihlaseniNaKurzSNaslednymPrihlasenimKUctu(){
+    public void  klientMusiBytSchopenSePrihlasitNaKurzANasledneKUctu(){
         prohlizec.navigate().to("https://cz-test-jedna.herokuapp.com/");
         WebElement zalozkaPrihlaseniKeKurzu=prohlizec.findElement(By.xpath("//a[@href='https://cz-test-jedna.herokuapp.com/1-digitalni-akademie-testovani']"));
         zalozkaPrihlaseniKeKurzu.click();
@@ -62,7 +60,6 @@ public class TestyPrihlasovaniNaKurzy {
         WebElement najdiPrihlasku = prohlizec.findElement(By.xpath("/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr[1]/td[1]"));
 
         Assertions.assertNotNull(najdiPrihlasku);
-
 
 
     }
@@ -87,7 +84,7 @@ public class TestyPrihlasovaniNaKurzy {
     }
 
     @Test
-    public void prihlaseniKUctuSNaslednymVyberemAVyplnenimKurzu (){
+    public void klientMusiBytSchopenSePrihlasitKUctuANasedneKeKurzu(){
         prohlizec.navigate().to("https://cz-test-jedna.herokuapp.com/prihlaseni");
         prihlaseniKUctu();
         WebElement zalozkaDomu = prohlizec.findElement(By.xpath("/html/body/div/header/nav/div/div[1]/a[1]"));
@@ -114,6 +111,7 @@ public class TestyPrihlasovaniNaKurzy {
     public void prihlasenyRodicMusiBytSchopenPrihlaskuUpravit(){
          prohlizec.navigate().to("https://cz-test-jedna.herokuapp.com/prihlaseni");
          prihlaseniKUctu();
+
          WebElement poleHledat = prohlizec.findElement(By.xpath("//input[@type='search']"));
          poleHledat.sendKeys("\nRU");
          WebElement tlacitkoUpravit = prohlizec.findElement(By.xpath("//*[text()='Upravit']"));
